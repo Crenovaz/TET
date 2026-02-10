@@ -62,10 +62,6 @@
             filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.3));
         }
 
-        .nav-info {
-            text-align: right;
-        }
-
         #current-time {
             font-weight: 600;
             font-size: 0.85rem;
@@ -89,7 +85,6 @@
             .dashboard-grid { grid-template-columns: 1fr; }
         }
 
-        /* --- Cards --- */
         .card {
             background: var(--card-bg);
             padding: 1.5rem;
@@ -99,20 +94,10 @@
             transition: transform 0.3s ease;
         }
 
-        .card:hover {
-            border-color: #475569;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
         .card h3 {
             font-size: 1.1rem;
             color: var(--text-dim);
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -143,7 +128,6 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             margin-top: 10px;
         }
 
@@ -151,13 +135,13 @@
         .status-waspada { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
         .status-bahaya { background: rgba(220, 38, 38, 0.1); color: #f87171; border: 1px solid rgba(220, 38, 38, 0.3); }
 
-        /* --- Form Elements --- */
+        /* --- Form --- */
         label {
             display: block;
             font-size: 0.8rem;
             font-weight: 600;
             color: var(--text-dim);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             margin-left: 5px;
         }
 
@@ -170,13 +154,12 @@
             border-radius: 12px;
             color: white;
             font-size: 0.95rem;
-            transition: all 0.2s ease;
         }
 
         input:focus, select:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
         }
 
         .btn-primary {
@@ -187,50 +170,13 @@
             border: none;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            transition: 0.3s;
         }
 
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.3);
-        }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
 
-        .btn-primary:active { transform: translateY(0); }
-        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-        /* --- Table & Search --- */
-        .table-actions {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        .search-box {
-            flex: 1;
-            margin-bottom: 0;
-        }
-
-        .btn-outline {
-            padding: 0.75rem 1.25rem;
-            background: transparent;
-            border: 1px solid #334155;
-            color: var(--text-main);
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
-
-        .btn-outline:hover { background: #334155; }
-
+        /* --- Table --- */
         .table-container {
             overflow-x: auto;
             border-radius: 16px;
@@ -240,27 +186,21 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
         }
 
         th {
             background: #0f172a;
-            padding: 1.25rem 1rem;
+            padding: 1rem;
             text-align: left;
             color: var(--text-dim);
-            font-weight: 700;
-            text-transform: uppercase;
             font-size: 0.75rem;
-            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         td {
-            padding: 1.25rem 1rem;
+            padding: 1rem;
             border-bottom: 1px solid #334155;
-            background: var(--card-bg);
         }
-
-        tr:hover td { background: #263349; }
 
         .poin-tag {
             background: rgba(220, 38, 38, 0.1);
@@ -270,7 +210,6 @@
             font-weight: 800;
         }
 
-        /* --- Toast --- */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -281,110 +220,94 @@
             z-index: 1000;
             color: white;
             font-weight: 600;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
         }
-
-        /* --- Animations --- */
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        .loading-dots::after { content: '...'; animation: pulse 1.5s infinite; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo-container">
-            <img src="https://smasa-magetan.sch.id/wp-content/uploads/2023/06/LOGO-SMA-NEGERI-1-MAGETAN-258x300.png" alt="SMAN 1 Magetan" class="logo-img">
+            <img src="https://smasa-magetan.sch.id/wp-content/uploads/2023/06/LOGO-SMA-NEGERI-1-MAGETAN-258x300.png" alt="Logo" class="logo-img">
             <div>
-                <h2 style="font-size: 1.1rem; letter-spacing: 0.5px;">E-PELANGGARAN</h2>
-                <p style="font-size: 0.65rem; color: var(--text-dim); font-weight: 700; opacity: 0.8;">SMAN 1 MAGETAN</p>
+                <h2 style="font-size: 1.1rem;">E-PELANGGARAN</h2>
+                <p style="font-size: 0.65rem; color: var(--text-dim); font-weight: 700;">SMAN 1 MAGETAN</p>
             </div>
         </div>
-        <div class="nav-info">
-            <div id="current-time">Memuat waktu...</div>
-        </div>
+        <div id="current-time">Memuat...</div>
     </nav>
 
     <div class="container">
         <div class="dashboard-grid">
-            <!-- Kolom Kiri: Stats & Input -->
-            <div class="side-panel" style="display: flex; flex-direction: column; gap: 2rem;">
-                
-                <!-- Card Stats -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3>📈 Akumulasi Poin</h3>
-                    </div>
+            <div class="side-panel">
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3>📈 Akumulasi Poin</h3>
                     <div class="stats-display">
                         <div class="big-number" id="totalPoin">0</div>
                         <div id="statusBadge" class="status-badge status-aman">Status: Aman</div>
                     </div>
-                    <div style="height: 180px;">
+                    <div style="height: 150px;">
                         <canvas id="chart"></canvas>
                     </div>
                 </div>
 
-                <!-- Card Form -->
                 <div class="card">
-                    <h3>📝 Catat Pelanggaran</h3>
-                    <div style="margin-top: 1rem;">
-                        <label>Identitas Siswa</label>
-                        <input type="text" id="nama" placeholder="Nama Lengkap">
-                        <input type="text" id="nis" placeholder="Nomor Induk Siswa (NIS)">
-                        
-                        <label>Kelas</label>
-                        <select id="kelas">
-                            <option value="">Pilih Kelas</option>
-                            <optgroup label="Kelas X">
-                                <option value="X-1">X-1</option><option value="X-2">X-2</option>
-                                <option value="X-3">X-3</option><option value="X-4">X-4</option>
-                            </optgroup>
-                            <optgroup label="Kelas XI">
-                                <option value="XI-MIPA">XI MIPA</option><option value="XI-IPS">XI IPS</option>
-                            </optgroup>
-                            <optgroup label="Kelas XII">
-                                <option value="XII-MIPA">XII MIPA</option><option value="XII-IPS">XII IPS</option>
-                            </optgroup>
-                        </select>
+                    <h3>📝 Input Pelanggaran</h3>
+                    <label>Nama Siswa</label>
+                    <input type="text" id="nama" placeholder="Nama Lengkap">
+                    
+                    <label>NIS</label>
+                    <input type="text" id="nis" placeholder="NIS">
+                    
+                    <label>Kelas</label>
+                    <select id="kelas">
+                        <option value="">Pilih Kelas</option>
+                        <optgroup label="KELAS X">
+                            <option value="X-1">X-1</option><option value="X-2">X-2</option><option value="X-3">X-3</option>
+                            <option value="X-4">X-4</option><option value="X-5">X-5</option><option value="X-6">X-6</option>
+                            <option value="X-7">X-7</option><option value="X-8">X-8</option><option value="X-9">X-9</option>
+                            <option value="X-10">X-10</option>
+                        </optgroup>
+                        <optgroup label="KELAS XI">
+                            <option value="XI-1">XI-1</option><option value="XI-2">XI-2</option><option value="XI-3">XI-3</option>
+                            <option value="XI-4">XI-4</option><option value="XI-5">XI-5</option><option value="XI-6">XI-6</option>
+                            <option value="XI-7">XI-7</option><option value="XI-8">XI-8</option><option value="XI-9">XI-9</option>
+                            <option value="XI-10">XI-10</option>
+                        </optgroup>
+                        <optgroup label="KELAS XII">
+                            <option value="XII-1">XII-1</option><option value="XII-2">XII-2</option><option value="XII-3">XII-3</option>
+                            <option value="XII-4">XII-4</option><option value="XII-5">XII-5</option><option value="XII-6">XII-6</option>
+                            <option value="XII-7">XII-7</option><option value="XII-8">XII-8</option><option value="XII-9">XII-9</option>
+                            <option value="XII-10">XII-10</option>
+                        </optgroup>
+                    </select>
 
-                        <label>Detail Pelanggaran</label>
-                        <input type="text" id="jenis" placeholder="Contoh: Terlambat, Atribut">
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                            <div>
-                                <label>Poin</label>
-                                <input type="number" id="poin" placeholder="0">
-                            </div>
-                            <div>
-                                <label>Guru Pelapor</label>
-                                <input type="text" id="guru" placeholder="Nama Guru">
-                            </div>
+                    <label>Jenis Pelanggaran</label>
+                    <input type="text" id="jenis" placeholder="Contoh: Terlambat">
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <div style="flex: 1;">
+                            <label>Poin</label>
+                            <input type="number" id="poin" placeholder="0">
                         </div>
-
-                        <button onclick="submitData()" id="btnSimpan" class="btn-primary">
-                            <span>Simpan Data</span>
-                        </button>
+                        <div style="flex: 1;">
+                            <label>Guru Pelapor</label>
+                            <input type="text" id="guru" placeholder="Nama Guru">
+                        </div>
                     </div>
+
+                    <button onclick="submitData()" id="btnSimpan" class="btn-primary">Simpan Data</button>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Riwayat -->
             <div class="main-panel">
                 <div class="card" style="min-height: 100%;">
-                    <div class="card-header">
-                        <h3>🕒 Log Riwayat Pelanggaran</h3>
-                        <button class="btn-outline" onclick="exportData()">Export CSV</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3>🕒 Riwayat Terbaru</h3>
+                        <input type="text" id="searchInput" style="width: 250px; margin-bottom: 0;" placeholder="Cari..." onkeyup="filterTable()">
                     </div>
-
-                    <div class="table-actions">
-                        <input type="text" id="searchInput" class="search-box" placeholder="Cari nama siswa atau jenis pelanggaran..." onkeyup="filterTable()">
-                    </div>
-
+                    
                     <div class="table-container">
-                        <table id="logTable">
+                        <table>
                             <thead>
                                 <tr>
                                     <th>Waktu</th>
@@ -392,17 +315,13 @@
                                     <th>Kelas</th>
                                     <th>Pelanggaran</th>
                                     <th>Poin</th>
-                                    <th>Pelapor</th>
                                 </tr>
                             </thead>
-                            <tbody id="historyBody">
-                                <!-- Data rows go here -->
-                            </tbody>
+                            <tbody id="historyBody"></tbody>
                         </table>
                     </div>
-                    <div id="emptyState" style="text-align: center; padding: 5rem 2rem; color: var(--text-dim);">
-                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">📂</div>
-                        <p>Belum ada data pelanggaran yang tercatat hari ini.</p>
+                    <div id="emptyState" style="text-align: center; padding: 4rem; color: var(--text-dim);">
+                        <p>Belum ada data tercatat.</p>
                     </div>
                 </div>
             </div>
@@ -412,114 +331,56 @@
     <div id="toast" class="toast"></div>
 
     <script>
-        // --- KONFIGURASI ---
-        // GANTI DENGAN URL WEB APP ANDA DARI GOOGLE APPS SCRIPT
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxCqQOKDE8ZILRWTKHRV-V5x4GkQeiHPs618GsjvbYDm-36lKIGfEkVu3fU9QuW9AiwTg/exec";
-
         let totalPoints = 0;
         let chartInstance;
-        let dataHistory = [];
 
         window.onload = function() {
             initChart();
-            startClock();
-            
-            // Animasi Masuk
-            gsap.from(".card", { 
-                opacity: 0, 
-                y: 40, 
-                duration: 1, 
-                stagger: 0.15, 
-                ease: "expo.out" 
-            });
+            setInterval(() => {
+                document.getElementById('current-time').innerText = new Date().toLocaleTimeString('id-ID');
+            }, 1000);
         };
-
-        function startClock() {
-            const update = () => {
-                const now = new Date();
-                document.getElementById('current-time').innerText = now.toLocaleString('id-ID', { 
-                    weekday: 'long', day: 'numeric', month: 'short', year: 'numeric',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit'
-                }).replace(/\./g, ':');
-            };
-            setInterval(update, 1000);
-            update();
-        }
 
         function initChart() {
             const ctx = document.getElementById('chart').getContext('2d');
             chartInstance = new Chart(ctx, {
                 type: 'line',
-                data: {
-                    labels: ['Start'],
-                    datasets: [{
-                        data: [0],
-                        borderColor: '#dc2626',
-                        backgroundColor: 'rgba(220, 38, 38, 0.1)',
-                        fill: true,
-                        tension: 0.4,
-                        borderWidth: 3,
-                        pointRadius: 4,
-                        pointBackgroundColor: '#fff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b' } },
-                        x: { grid: { display: false }, ticks: { color: '#64748b' } }
-                    }
-                }
+                data: { labels: ['Start'], datasets: [{ data: [0], borderColor: '#dc2626', fill: true, backgroundColor: 'rgba(220,38,38,0.1)', tension: 0.4 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { display: false }, y: { beginAtZero: true } } }
             });
         }
 
         async function submitData() {
             const btn = document.getElementById('btnSimpan');
-            const fields = ['nama', 'nis', 'kelas', 'jenis', 'poin', 'guru'];
-            const data = {};
-            
-            fields.forEach(f => data[f] = document.getElementById(f).value);
-            data.poin = parseInt(data.poin);
+            const data = {
+                nama: document.getElementById('nama').value,
+                nis: document.getElementById('nis').value,
+                kelas: document.getElementById('kelas').value,
+                jenis: document.getElementById('jenis').value,
+                poin: parseInt(document.getElementById('poin').value) || 0,
+                guru: document.getElementById('guru').value
+            };
 
-            // Validasi Sederhana
-            if (!data.nama || !data.nis || isNaN(data.poin)) {
-                showToast("⚠️ Mohon lengkapi data wajib (Nama, NIS, Poin)!", "var(--warning)");
+            if (!data.nama || !data.kelas || data.poin <= 0) {
+                showToast("Lengkapi data dengan benar!", "var(--warning)");
                 return;
             }
 
-            // UI Feedback
             btn.disabled = true;
-            btn.innerHTML = `<span class="loading-dots">Menyimpan</span>`;
+            btn.innerText = "Memproses...";
 
             try {
-                // Kirim ke Google Sheets
-                if(WEB_APP_URL.includes("PASTE_URL")) {
-                    console.warn("URL Web App belum diatur. Menjalankan simulasi lokal.");
-                } else {
-                    await fetch(WEB_APP_URL, {
-                        method: "POST",
-                        mode: "no-cors",
-                        headers: { "Content-Type": "text/plain;charset=utf-8" },
-                        body: JSON.stringify(data)
-                    });
-                }
-
-                // Update Dashboard & Table
-                totalPoints += data.poin;
-                data.timestamp = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-                dataHistory.push(data);
+                await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: JSON.stringify(data) });
                 
+                totalPoints += data.poin;
                 updateUI(data);
-                showToast("✅ Data Berhasil Dicatat ke Spreadsheet!", "var(--success)");
-
-                // Reset Inputs
+                showToast("Data berhasil disimpan!", "var(--success)");
+                
+                // Clear form
                 ['nama', 'nis', 'jenis', 'poin'].forEach(id => document.getElementById(id).value = "");
-
-            } catch (error) {
-                showToast("❌ Gagal menyimpan data ke server.", "var(--primary)");
-                console.error(error);
+            } catch (e) {
+                showToast("Terjadi kesalahan!", "var(--primary)");
             } finally {
                 btn.disabled = false;
                 btn.innerText = "Simpan Data";
@@ -527,91 +388,35 @@
         }
 
         function updateUI(data) {
-            // 1. Update Counter
-            const el = document.getElementById('totalPoin');
-            el.innerText = totalPoints;
-            gsap.from(el, { scale: 1.4, duration: 0.5, ease: "back.out" });
-
-            // 2. Update Badge
+            document.getElementById('totalPoin').innerText = totalPoints;
             const badge = document.getElementById('statusBadge');
-            if (totalPoints < 50) {
-                badge.className = "status-badge status-aman";
-                badge.innerText = "Status: Aman";
-            } else if (totalPoints < 100) {
-                badge.className = "status-badge status-waspada";
-                badge.innerText = "Status: Waspada";
-            } else {
-                badge.className = "status-badge status-bahaya";
-                badge.innerText = "Status: Bahaya (BK)";
+            
+            if (totalPoints >= 100) {
+                badge.className = "status-badge status-bahaya"; badge.innerText = "Status: Bahaya (BK)";
+            } else if (totalPoints >= 50) {
+                badge.className = "status-badge status-waspada"; badge.innerText = "Status: Waspada";
             }
 
-            // 3. Update Table
             const tbody = document.getElementById('historyBody');
             document.getElementById('emptyState').style.display = "none";
+            const row = tbody.insertRow(0);
+            row.innerHTML = `<td>${new Date().toLocaleTimeString()}</td><td><b>${data.nama}</b></td><td>${data.kelas}</td><td>${data.jenis}</td><td><span class="poin-tag">+${data.poin}</span></td>`;
             
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${data.timestamp}</td>
-                <td><div style="font-weight:700">${data.nama}</div><div style="font-size:0.7rem; opacity:0.6">${data.nis}</div></td>
-                <td>${data.kelas}</td>
-                <td>${data.jenis}</td>
-                <td><span class="poin-tag">+${data.poin}</span></td>
-                <td>${data.guru}</td>
-            `;
-            tbody.insertBefore(row, tbody.firstChild);
-            gsap.from(row, { backgroundColor: "rgba(56, 189, 248, 0.2)", duration: 1 });
-
-            // 4. Update Chart
-            chartInstance.data.labels.push(data.timestamp);
+            chartInstance.data.labels.push("");
             chartInstance.data.datasets[0].data.push(totalPoints);
-            if (chartInstance.data.labels.length > 8) {
-                chartInstance.data.labels.shift();
-                chartInstance.data.datasets[0].data.shift();
-            }
             chartInstance.update();
         }
 
         function filterTable() {
-            const input = document.getElementById("searchInput").value.toUpperCase();
-            const rows = document.getElementById("historyBody").getElementsByTagName("tr");
-            
-            for (let i = 0; i < rows.length; i++) {
-                const text = rows[i].textContent || rows[i].innerText;
-                rows[i].style.display = text.toUpperCase().indexOf(input) > -1 ? "" : "none";
-            }
-        }
-
-        function exportData() {
-            if (dataHistory.length === 0) {
-                showToast("⚠️ Tidak ada data untuk di-export.", "var(--warning)");
-                return;
-            }
-            
-            let csv = "Waktu,Nama,NIS,Kelas,Pelanggaran,Poin,Guru\n";
-            dataHistory.forEach(d => {
-                csv += `${d.timestamp},${d.nama},${d.nis},${d.kelas},${d.jenis},${d.poin},${d.guru}\n`;
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.setAttribute('hidden', '');
-            a.setAttribute('href', url);
-            a.setAttribute('download', `E-Pelanggaran_SMASA_${new Date().toLocaleDateString()}.csv`);
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const val = document.getElementById("searchInput").value.toUpperCase();
+            const rows = document.querySelectorAll("#historyBody tr");
+            rows.forEach(r => r.style.display = r.innerText.toUpperCase().includes(val) ? "" : "none");
         }
 
         function showToast(msg, bg) {
             const t = document.getElementById('toast');
-            t.innerText = msg;
-            t.style.background = bg;
-            t.style.display = "block";
-            gsap.fromTo(t, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 });
-            setTimeout(() => {
-                gsap.to(t, { opacity: 0, y: 20, duration: 0.4, onComplete: () => t.style.display = "none" });
-            }, 3500);
+            t.innerText = msg; t.style.background = bg; t.style.display = "block";
+            setTimeout(() => t.style.display = "none", 3000);
         }
     </script>
 </body>
